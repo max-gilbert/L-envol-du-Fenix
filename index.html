@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>BénévoGame — FENIX Toulouse Handball</title>
 <style>
-/* ── Reset & variables ── */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#1B3A5C;--sky:#6AADCC;--sky-light:#E8F4FA;--navy-light:#E8EDF3;
@@ -14,17 +13,13 @@
   --radius:10px;--shadow:0 2px 8px rgba(0,0,0,.08);
 }
 body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-/* ── Layout ── */
 .wrap{max-width:720px;margin:0 auto;padding:1rem}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-/* ── Header ── */
 .header{background:var(--navy);border-radius:var(--radius);padding:.85rem 1.25rem;display:flex;align-items:center;gap:12px;margin-bottom:1.25rem}
-/* ── Nav ── */
 .nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;border-bottom:1px solid var(--border);padding-bottom:.85rem}
 .nav button{padding:6px 14px;border-radius:var(--radius);font-size:13px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);transition:all .15s}
 .nav button.active{background:var(--sky);color:#fff;border-color:transparent}
-/* ── Buttons ── */
 .btn{padding:8px 20px;border-radius:var(--radius);cursor:pointer;border:none;font-size:14px;font-weight:500;transition:opacity .15s}
 .btn:hover{opacity:.88}
 .btn-navy{background:var(--navy);color:#fff}
@@ -33,26 +28,18 @@ body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:v
 .btn-sm:hover{background:var(--sky-light)}
 .btn-done{background:#e6f9ee;color:var(--success);border-color:transparent;cursor:default}
 .btn-danger{color:var(--danger);border-color:transparent;background:transparent}
-/* ── Form ── */
 label.lbl{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
-input[type=text],input[type=email],input[type=password],textarea,select{
-  width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;
-  font-size:14px;margin-bottom:10px;background:var(--surface);color:var(--text);outline:none
-}
+input[type=text],input[type=password],textarea,select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px;margin-bottom:10px;background:var(--surface);color:var(--text);outline:none}
 input:focus,textarea:focus,select:focus{border-color:var(--sky)}
-/* ── Badges ── */
 .badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px}
 .badge-sky{background:var(--sky-light);color:var(--navy)}
 .badge-ok{background:#e6f9ee;color:var(--success)}
 .badge-warn{background:#fef5e4;color:#b7770d}
-/* ── Progress ── */
 .prog-wrap{background:var(--sky-light);border-radius:20px;height:12px;overflow:hidden;margin:6px 0}
 .prog-bar{height:100%;border-radius:20px;background:var(--sky);transition:width .4s}
-/* ── Metric box ── */
 .metric{background:var(--sky-light);border-radius:var(--radius);padding:1rem;text-align:center}
 .metric .val{font-size:26px;font-weight:600;color:var(--navy)}
 .metric .lbl2{font-size:12px;color:var(--muted);margin-top:4px}
-/* ── Parcours ── */
 .parcours{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:.5rem 0}
 .etape{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:var(--muted)}
 .dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid var(--border);background:#f0f2f5}
@@ -61,36 +48,33 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
 .connector{width:18px;height:2px;background:var(--border);margin-bottom:22px}
 .connector.done{background:var(--sky)}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(106,173,204,.4)}50%{box-shadow:0 0 0 6px rgba(106,173,204,0)}}
-/* ── Mission row ── */
 .m-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
 .m-row:last-child{border-bottom:none}
 .pts-pill{min-width:50px;text-align:center;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:600;background:var(--sky-light);color:var(--navy)}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:20px;background:#eef0f3;color:var(--muted);margin:2px}
-/* ── Ranking ── */
 .rank-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
 .rank-row:last-child{border-bottom:none}
 .rank-row.me{background:var(--sky-light);border-radius:8px;padding:8px 10px}
-/* ── Reward card ── */
 .rew-card{border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center}
 .rew-card.unlocked{border-color:var(--sky);background:var(--sky-light)}
-/* ── Toast ── */
 #toast{position:fixed;bottom:22px;right:22px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:var(--radius);font-size:13px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999;max-width:300px}
 #toast.show{opacity:1}
-/* ── Avatar picker ── */
 .av-opt{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;border:2px solid transparent;background:#f0f2f5}
 .av-opt.sel{border-color:var(--sky);background:var(--sky-light)}
-/* ── Admin tabs ── */
 .adm-tab{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
-/* ── Email preview ── */
 #email-preview{background:#f8f9fa;border:1px solid var(--border);border-radius:var(--radius);padding:1rem;font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-x:auto}
-/* ── Sections hidden by default ── */
+/* Éditeur de niveaux */
+.lv-row{display:grid;grid-template-columns:36px 1fr 70px 36px 1fr auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.lv-row:last-child{border-bottom:none}
+.lv-row input{margin-bottom:0;padding:5px 8px;font-size:13px}
+.lv-row .lv-av{width:36px;padding:5px;text-align:center;font-size:18px}
+.lv-lock{font-size:11px;color:var(--muted);padding:4px 6px;background:#f0f2f5;border-radius:6px;white-space:nowrap}
 .section{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- HEADER -->
   <div class="header">
     <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="22" cy="22" r="22" fill="#6AADCC"/>
@@ -111,7 +95,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     </div>
   </div>
 
-  <!-- NAV -->
   <div class="nav" id="main-nav">
     <button onclick="go('dashboard')" data-s="dashboard" class="active">🏠 Accueil</button>
     <button onclick="go('missions')" data-s="missions">✅ Missions</button>
@@ -119,7 +102,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     <button onclick="go('classement')" data-s="classement">🏅 Classement</button>
   </div>
 
-  <!-- ══════════ DASHBOARD ══════════ -->
+  <!-- DASHBOARD -->
   <div id="s-dashboard" class="section">
     <div id="no-user" class="card" style="text-align:center;padding:2.5rem">
       <div style="font-size:52px;margin-bottom:.5rem">🥚</div>
@@ -133,7 +116,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
           <div id="p-avatar" style="width:56px;height:56px;border-radius:50%;background:var(--sky-light);border:2px solid var(--sky);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0">🥚</div>
           <div style="flex:1">
             <div style="font-size:16px;font-weight:600" id="p-name">—</div>
-            <span id="p-badge" class="badge badge-sky" style="margin-top:4px">Niveau 1 — L'Œuf du Fènix</span>
+            <span id="p-badge" class="badge badge-sky" style="margin-top:4px">Niveau 1</span>
           </div>
           <div style="text-align:right">
             <div style="font-size:26px;font-weight:700;color:var(--sky)" id="p-pts">0</div>
@@ -152,13 +135,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
         <div style="font-size:12px;color:var(--navy);font-weight:600">ℹ️ Club fondé en 1964 à Toulouse · StarLigue · EHF European League</div>
         <div style="font-size:12px;color:var(--navy);margin-top:4px;opacity:.8">Chaque mission te rapproche du Fènix Ultime. Allez Toulouse !</div>
       </div>
-      <div style="text-align:right">
-        <button class="btn-sm btn-danger" onclick="logout()">Se déconnecter</button>
-      </div>
+      <div style="text-align:right"><button class="btn-sm btn-danger" onclick="logout()">Se déconnecter</button></div>
     </div>
   </div>
 
-  <!-- ══════════ MISSIONS ══════════ -->
+  <!-- MISSIONS -->
   <div id="s-missions" class="section">
     <div class="card">
       <div style="font-size:14px;font-weight:600;margin-bottom:1rem">Missions disponibles</div>
@@ -166,7 +147,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     </div>
   </div>
 
-  <!-- ══════════ PARCOURS ══════════ -->
+  <!-- PARCOURS -->
   <div id="s-parcours" class="section">
     <div class="card">
       <div style="font-size:14px;font-weight:600;margin-bottom:.25rem">La naissance du Fènix</div>
@@ -177,7 +158,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     <div class="grid2" id="rewards-vis"></div>
   </div>
 
-  <!-- ══════════ CLASSEMENT ══════════ -->
+  <!-- CLASSEMENT -->
   <div id="s-classement" class="section">
     <div class="card">
       <div style="font-size:14px;font-weight:600;margin-bottom:.25rem">Classement des bénévoles</div>
@@ -186,24 +167,22 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     </div>
   </div>
 
-  <!-- ══════════ INSCRIPTION / CONNEXION ══════════ -->
+  <!-- LOGIN -->
   <div id="s-login" class="section">
     <div class="card" style="max-width:440px;margin:0 auto">
       <div style="font-size:15px;font-weight:600;margin-bottom:.25rem">Rejoindre l'équipe bénévole</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:1.25rem">FENIX Toulouse Handball — Fondé en 1964</div>
-
       <div id="login-existing" style="margin-bottom:1rem">
         <label class="lbl">Tu as déjà un profil ? Sélectionne ton nom :</label>
         <select id="sel-existing"><option value="">— Choisir —</option></select>
         <button class="btn btn-sky" style="width:100%;margin-bottom:8px" onclick="loginExisting()">Se connecter</button>
         <div style="text-align:center;color:var(--muted);font-size:12px;margin-bottom:8px">— ou crée un nouveau profil —</div>
       </div>
-
       <label class="lbl">Prénom & Nom</label>
       <input type="text" id="reg-name" placeholder="Ex : Marie Dupont"/>
       <label class="lbl">Rôle dans le club</label>
       <input type="text" id="reg-role" placeholder="Ex : Arbitre, Staff, Parent bénévole…"/>
-      <label class="lbl">Email (optionnel, pour les notifications)</label>
+      <label class="lbl">Email (optionnel)</label>
       <input type="text" id="reg-email" placeholder="marie@exemple.fr"/>
       <label class="lbl">Choisis ton avatar de départ</label>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.5rem" id="av-picker"></div>
@@ -214,7 +193,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     </div>
   </div>
 
-  <!-- ══════════ ADMIN LOGIN ══════════ -->
+  <!-- ADMIN LOGIN -->
   <div id="s-admin-login" class="section">
     <div class="card" style="max-width:400px;margin:0 auto">
       <div style="font-size:15px;font-weight:600;margin-bottom:1rem">🔐 Accès administrateur — FENIX</div>
@@ -226,7 +205,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     </div>
   </div>
 
-  <!-- ══════════ ADMIN PANEL ══════════ -->
+  <!-- ADMIN PANEL -->
   <div id="s-admin" class="section">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
       <div style="font-size:15px;font-weight:600">Administration FENIX</div>
@@ -244,7 +223,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
       <div class="card">
         <div style="font-size:14px;font-weight:600;margin-bottom:1rem">Ajouter / modifier une mission</div>
         <input type="hidden" id="edit-id"/>
-        <label class="lbl">Intitulé de la mission</label>
+        <label class="lbl">Intitulé</label>
         <input type="text" id="m-name" placeholder="Ex : Tenue de la buvette"/>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <div><label class="lbl">Points</label><input type="text" id="m-pts" placeholder="50"/></div>
@@ -269,10 +248,9 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
         <div style="font-size:14px;font-weight:600;margin-bottom:1rem">Missions en attente de validation</div>
         <div id="adm-val-list"></div>
       </div>
-      <!-- Email preview -->
       <div class="card">
         <div style="font-size:14px;font-weight:600;margin-bottom:.5rem">📧 Modèle d'email de validation</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:.75rem">Cliquez "Valider" ci-dessus pour pré-remplir ce modèle, puis copiez-collez dans votre client mail.</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:.75rem">Cliquez "Valider" ci-dessus pour pré-remplir ce modèle.</div>
         <div id="email-preview">Validez une mission pour générer le modèle d'email.</div>
         <button class="btn-sm" style="margin-top:.75rem" onclick="copyEmail()">📋 Copier l'email</button>
       </div>
@@ -289,10 +267,10 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
     <!-- ADMIN : Paramètres -->
     <div id="adm-parametres" style="display:none">
       <div class="card">
-        <div style="font-size:14px;font-weight:600;margin-bottom:1rem">Paramètres</div>
-        <label class="lbl">Email du responsable (destinataire des notifications)</label>
+        <div style="font-size:14px;font-weight:600;margin-bottom:1rem">Paramètres généraux</div>
+        <label class="lbl">Email du responsable</label>
         <input type="text" id="cfg-email" placeholder="responsable@fenix-toulouse.fr"/>
-        <label class="lbl">Changer le mot de passe admin</label>
+        <label class="lbl">Nouveau mot de passe admin</label>
         <input type="password" id="cfg-pwd1" placeholder="Nouveau mot de passe"/>
         <input type="password" id="cfg-pwd2" placeholder="Confirmer"/>
         <button class="btn btn-navy" onclick="saveParams()">💾 Enregistrer</button>
@@ -301,18 +279,45 @@ input:focus,textarea:focus,select:focus{border-color:var(--sky)}
         <div style="font-size:13px;font-weight:600;color:var(--danger);margin-bottom:.5rem">Zone de danger</div>
         <button class="btn-sm btn-danger" onclick="resetAll()">🗑 Réinitialiser toutes les données</button>
       </div>
+
+      <!-- ÉDITEUR DE NIVEAUX -->
+      <div class="card">
+        <div style="font-size:14px;font-weight:600;margin-bottom:.25rem">🦅 Niveaux & Récompenses</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:1rem">
+          Modifie les seuils de points, noms, avatars (emoji) et récompenses.<br>
+          ⚠️ Le niveau 1 est toujours à 0 point (point de départ).
+        </div>
+        <!-- légende colonnes -->
+        <div style="display:grid;grid-template-columns:36px 1fr 70px 36px 1fr auto;gap:6px;font-size:11px;color:var(--muted);padding:0 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px">
+          <div>Av.</div><div>Nom du niveau</div><div>Points min</div><div></div><div>Récompense</div><div></div>
+        </div>
+        <div id="levels-editor"></div>
+        <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
+          <button class="btn btn-navy" onclick="saveLevels()">💾 Enregistrer les niveaux</button>
+          <button class="btn-sm" onclick="addLevel()">＋ Ajouter un niveau</button>
+          <button class="btn-sm btn-danger" onclick="resetLevels()">↺ Remettre par défaut</button>
+        </div>
+        <div id="levels-msg" style="font-size:12px;margin-top:8px"></div>
+      </div>
     </div>
   </div>
 
-</div><!-- /wrap -->
-
+</div>
 <div id="toast"></div>
 
 <script>
-// ═══════════════════════════════════════════════
-//  CONSTANTES
-// ═══════════════════════════════════════════════
-const LEVELS=[
+// ══════════════════════════════════════
+//  STORAGE
+// ══════════════════════════════════════
+const LS={
+  load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}},
+  save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){console.warn(e)}},
+};
+
+// ══════════════════════════════════════
+//  DONNÉES PAR DÉFAUT
+// ══════════════════════════════════════
+const DEFAULT_LEVELS=[
   {name:"L'Œuf du Fènix",     pts:0,   av:'🥚', reward:'Badge numérique FENIX'},
   {name:'Le Poussin',          pts:100, av:'🐣', reward:'T-shirt officiel FENIX'},
   {name:"L'Envol",             pts:300, av:'🐥', reward:'Invitation match à domicile'},
@@ -320,30 +325,27 @@ const LEVELS=[
   {name:'Le Fènix Majestueux', pts:1000,av:'🔥', reward:'Maillot signé + diplôme d\'honneur'},
   {name:'Le Fènix Ultime',     pts:1500,av:'🌟', reward:'Intronisation au Hall of Fame du FENIX'},
 ];
-const AV_OPTS=['🥚','🐣','🐥','🦅','🔥','🌟'];
-const LS={
-  load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}},
-  save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){console.warn(e)}},
-};
+const DEFAULT_MISSIONS=[
+  {id:1,name:'Tenue de la buvette',pts:50,cat:'Logistique',desc:''},
+  {id:2,name:'Arbitrage d\'un match',pts:80,cat:'Sportif',desc:''},
+  {id:3,name:'Transport des équipements',pts:40,cat:'Logistique',desc:''},
+  {id:4,name:'Animation réseaux sociaux',pts:60,cat:'Communication',desc:''},
+  {id:5,name:'Organisation de tournoi',pts:120,cat:'Organisation',desc:''},
+  {id:6,name:'Accueil des équipes visiteuses',pts:45,cat:'Accueil',desc:''},
+];
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ÉTAT (hydraté depuis localStorage)
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 let DB={
   users:    LS.load('fg_users',[]),
-  missions: LS.load('fg_missions',[
-    {id:1,name:'Tenue de la buvette',pts:50,cat:'Logistique',desc:''},
-    {id:2,name:'Arbitrage d\'un match',pts:80,cat:'Sportif',desc:''},
-    {id:3,name:'Transport des équipements',pts:40,cat:'Logistique',desc:''},
-    {id:4,name:'Animation réseaux sociaux',pts:60,cat:'Communication',desc:''},
-    {id:5,name:'Organisation de tournoi',pts:120,cat:'Organisation',desc:''},
-    {id:6,name:'Accueil des équipes visiteuses',pts:45,cat:'Accueil',desc:''},
-  ]),
-  pending:  LS.load('fg_pending',[]),   // [{uid, mid}]
+  missions: LS.load('fg_missions', DEFAULT_MISSIONS),
+  pending:  LS.load('fg_pending',[]),
   cfg:      LS.load('fg_cfg',{email:'responsable@fenix-toulouse.fr',pwd:'admin123'}),
+  levels:   LS.load('fg_levels', DEFAULT_LEVELS),
   nextId:   LS.load('fg_nextId',100),
 };
-let CU=null;   // current user object (référence dans DB.users)
+let CU=null;
 let isAdmin=false;
 let lastEmailBody='';
 
@@ -352,62 +354,59 @@ function persist(){
   LS.save('fg_missions',DB.missions);
   LS.save('fg_pending',DB.pending);
   LS.save('fg_cfg',DB.cfg);
+  LS.save('fg_levels',DB.levels);
   LS.save('fg_nextId',DB.nextId);
 }
 
-// ═══════════════════════════════════════════════
-//  UTILS
-// ═══════════════════════════════════════════════
-function getLevel(pts){let l=0;for(let i=0;i<LEVELS.length;i++){if(pts>=LEVELS[i].pts)l=i;}return l;}
-function getLvAv(pts){return LEVELS[getLevel(pts)].av;}
+// ══════════════════════════════════════
+//  HELPERS NIVEAUX
+// ══════════════════════════════════════
+function getLevel(pts){
+  const lvs=DB.levels;
+  let l=0;
+  for(let i=0;i<lvs.length;i++){if(pts>=lvs[i].pts)l=i;}
+  return l;
+}
+function getLvAv(pts){return DB.levels[getLevel(pts)].av;}
+function getLvData(pts){return DB.levels[getLevel(pts)];}
 
+// ══════════════════════════════════════
+//  UTILS
+// ══════════════════════════════════════
 function toast(msg,dur=2800){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),dur);
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  NAVIGATION
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 const SECTIONS=['dashboard','missions','parcours','classement','login','admin-login','admin'];
-
 function go(sec){
-  SECTIONS.forEach(s=>{
-    const el=document.getElementById('s-'+s);
-    if(el)el.style.display='none';
-  });
-  const target=document.getElementById('s-'+sec);
-  if(target)target.style.display='block';
-
-  // nav highlight
+  SECTIONS.forEach(s=>{const el=document.getElementById('s-'+s);if(el)el.style.display='none';});
+  const t=document.getElementById('s-'+sec);if(t)t.style.display='block';
   const nav=document.getElementById('main-nav');
   nav.style.display=['login','admin-login','admin'].includes(sec)?'none':'flex';
-  document.querySelectorAll('.nav button').forEach(b=>{
-    b.classList.toggle('active',b.dataset.s===sec);
-  });
-
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.s===sec));
   if(sec==='dashboard')renderDashboard();
   if(sec==='missions')renderMissions();
   if(sec==='parcours')renderParcours();
   if(sec==='classement')renderClassement();
   if(sec==='login')renderLoginPage();
 }
-
 function gotoLogin(){go('login');}
 function gotoAdmin(){go('admin-login');}
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  AUTH BÉNÉVOLE
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderLoginPage(){
-  // Populate dropdown
   const sel=document.getElementById('sel-existing');
   sel.innerHTML='<option value="">— Choisir —</option>'+
     DB.users.map(u=>`<option value="${u.id}">${u.name} (${u.role})</option>`).join('');
   renderAvPicker();
 }
-
 function loginExisting(){
   const id=parseInt(document.getElementById('sel-existing').value);
   if(!id){toast('Sélectionne un nom dans la liste.');return;}
@@ -416,31 +415,28 @@ function loginExisting(){
   updateHeader();go('dashboard');
   toast('Bon retour, '+CU.name+' '+getLvAv(CU.pts));
 }
-
 function renderAvPicker(){
-  document.getElementById('av-picker').innerHTML=AV_OPTS.map(a=>
-    `<div class="av-opt${a===(window._selAv||'🥚')?' sel':''}" onclick="selAv('${a}')">${a}</div>`
+  const avs=DB.levels.map(l=>l.av).filter((v,i,a)=>a.indexOf(v)===i);
+  document.getElementById('av-picker').innerHTML=avs.map(a=>
+    `<div class="av-opt${a===(window._selAv||DB.levels[0].av)?' sel':''}" onclick="selAv('${a}')">${a}</div>`
   ).join('');
 }
 function selAv(a){window._selAv=a;renderAvPicker();}
-
 function register(){
   const name=document.getElementById('reg-name').value.trim();
   const role=document.getElementById('reg-role').value.trim();
   const email=document.getElementById('reg-email').value.trim();
   if(!name){document.getElementById('reg-err').textContent='Merci d\'entrer ton prénom et nom.';return;}
   if(DB.users.find(u=>u.name.toLowerCase()===name.toLowerCase())){
-    document.getElementById('reg-err').textContent='Ce nom existe déjà. Connecte-toi via la liste ci-dessus.';return;
+    document.getElementById('reg-err').textContent='Ce nom existe déjà. Connecte-toi via la liste.';return;
   }
   const u={id:DB.nextId++,name,role:role||'Bénévole',email,pts:0,missions:[]};
   DB.users.push(u);CU=u;persist();
   document.getElementById('reg-err').textContent='';
   updateHeader();go('dashboard');
-  toast('Bienvenue '+name+' ! Ton Fènix commence à éclore 🥚');
+  toast('Bienvenue '+name+' ! Ton Fènix commence à éclore '+DB.levels[0].av);
 }
-
 function logout(){CU=null;updateHeader();go('dashboard');}
-
 function updateHeader(){
   document.getElementById('hdr-user').textContent=CU?CU.name:'Non connecté';
   const btn=document.getElementById('hdr-btn');
@@ -448,15 +444,16 @@ function updateHeader(){
   else{btn.textContent='Se connecter';btn.onclick=gotoLogin;}
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  DASHBOARD
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderDashboard(){
   document.getElementById('no-user').style.display=CU?'none':'block';
   document.getElementById('user-panel').style.display=CU?'block':'none';
   if(!CU)return;
-  const lv=getLevel(CU.pts),lvD=LEVELS[lv],nx=LEVELS[Math.min(lv+1,LEVELS.length-1)];
-  const pct=lv<LEVELS.length-1?Math.round((CU.pts-lvD.pts)/(nx.pts-lvD.pts)*100):100;
+  const lv=getLevel(CU.pts),lvD=DB.levels[lv];
+  const nx=DB.levels[Math.min(lv+1,DB.levels.length-1)];
+  const pct=lv<DB.levels.length-1?Math.round((CU.pts-lvD.pts)/(nx.pts-lvD.pts)*100):100;
   document.getElementById('p-avatar').textContent=getLvAv(CU.pts);
   document.getElementById('p-name').textContent=CU.name+(CU.role?' — '+CU.role:'');
   document.getElementById('p-badge').textContent='Niveau '+(lv+1)+' — '+lvD.name;
@@ -467,9 +464,9 @@ function renderDashboard(){
   document.getElementById('p-bar-txt').textContent=CU.pts+' / '+nx.pts+' pts';
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  MISSIONS
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderMissions(){
   const el=document.getElementById('missions-list');
   if(!DB.missions.length){el.innerHTML='<p style="color:var(--muted);font-size:13px">Aucune mission pour l\'instant.</p>';return;}
@@ -490,7 +487,6 @@ function renderMissions(){
     </div>`;
   }).join('');
 }
-
 function signUp(mid){
   if(!CU){toast('Connecte-toi d\'abord !');return;}
   if(DB.pending.find(p=>p.uid===CU.id&&p.mid===mid))return;
@@ -499,21 +495,21 @@ function signUp(mid){
   renderMissions();
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  PARCOURS
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderParcours(){
   const pts=CU?CU.pts:0,lv=getLevel(pts);
   let h='';
-  LEVELS.forEach((l,i)=>{
+  DB.levels.forEach((l,i)=>{
     const done=i<lv,cur=i===lv;
     h+=`<div class="etape"><div class="dot${done?' done':cur?' current':''}">${l.av}</div>
       <div style="max-width:62px;text-align:center;line-height:1.3">${l.name}</div>
       <div style="font-size:10px;color:var(--muted)">${l.pts} pts</div></div>`;
-    if(i<LEVELS.length-1)h+=`<div class="connector${done?' done':''}"></div>`;
+    if(i<DB.levels.length-1)h+=`<div class="connector${done?' done':''}"></div>`;
   });
   document.getElementById('parcours-vis').innerHTML=h;
-  document.getElementById('rewards-vis').innerHTML=LEVELS.map((l,i)=>{
+  document.getElementById('rewards-vis').innerHTML=DB.levels.map((l,i)=>{
     const ok=pts>=l.pts;
     return `<div class="rew-card${ok?' unlocked':''}">
       <div style="font-size:34px;margin-bottom:6px">${l.av}</div>
@@ -526,9 +522,9 @@ function renderParcours(){
   }).join('');
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  CLASSEMENT
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderClassement(){
   const sorted=[...DB.users].sort((a,b)=>b.pts-a.pts);
   document.getElementById('rank-list').innerHTML=sorted.length?sorted.map((u,i)=>{
@@ -538,16 +534,16 @@ function renderClassement(){
       <div style="font-size:22px">${getLvAv(u.pts)}</div>
       <div style="flex:1">
         <div style="font-size:14px;font-weight:${isMe?600:400}">${u.name}${isMe?' (moi)':''}</div>
-        <div style="font-size:11px;color:var(--muted)">${LEVELS[lv].name} · ${u.role}</div>
+        <div style="font-size:11px;color:var(--muted)">${DB.levels[lv].name} · ${u.role}</div>
       </div>
       <div style="font-weight:600;font-size:15px;color:var(--sky)">${u.pts} pts</div>
     </div>`;
   }).join(''):'<p style="color:var(--muted);font-size:13px">Aucun bénévole inscrit.</p>';
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ADMIN AUTH
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function adminLogin(){
   const pwd=document.getElementById('adm-pwd').value;
   if(pwd===DB.cfg.pwd){
@@ -563,19 +559,18 @@ function adminLogin(){
 }
 function adminLogout(){isAdmin=false;go('dashboard');}
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ADMIN TABS
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 const ADM_TABS=['missions','validation','benevoles','parametres'];
 function admTab(t){
-  ADM_TABS.forEach(s=>{
-    const el=document.getElementById('adm-'+s);if(el)el.style.display=s===t?'block':'none';
-  });
+  ADM_TABS.forEach(s=>{const el=document.getElementById('adm-'+s);if(el)el.style.display=s===t?'block':'none';});
+  if(t==='parametres')renderLevelsEditor();
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ADMIN — MISSIONS CRUD
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function saveMission(){
   const id=parseInt(document.getElementById('edit-id').value)||null;
   const name=document.getElementById('m-name').value.trim();
@@ -583,16 +578,11 @@ function saveMission(){
   const cat=document.getElementById('m-cat').value.trim()||'Général';
   const desc=document.getElementById('m-desc').value.trim();
   if(!name){toast('Intitulé requis.');return;}
-  if(id){
-    const m=DB.missions.find(x=>x.id===id);
-    if(m){m.name=name;m.pts=pts;m.cat=cat;m.desc=desc;}
-  }else{
-    DB.missions.push({id:DB.nextId++,name,pts,cat,desc});
-  }
+  if(id){const m=DB.missions.find(x=>x.id===id);if(m){m.name=name;m.pts=pts;m.cat=cat;m.desc=desc;}}
+  else{DB.missions.push({id:DB.nextId++,name,pts,cat,desc});}
   persist();resetMissionForm();renderAdmMissions();
   toast(id?'Mission mise à jour.':'Mission ajoutée.');
 }
-
 function editMission(id){
   const m=DB.missions.find(x=>x.id===id);if(!m)return;
   document.getElementById('edit-id').value=m.id;
@@ -600,22 +590,18 @@ function editMission(id){
   document.getElementById('m-pts').value=m.pts;
   document.getElementById('m-cat').value=m.cat;
   document.getElementById('m-desc').value=m.desc||'';
-  admTab('missions');
-  document.getElementById('m-name').focus();
+  admTab('missions');document.getElementById('m-name').focus();
 }
-
 function deleteMission(id){
   if(!confirm('Supprimer cette mission ?'))return;
   DB.missions=DB.missions.filter(x=>x.id!==id);
   DB.pending=DB.pending.filter(p=>p.mid!==id);
   persist();renderAdmMissions();toast('Mission supprimée.');
 }
-
 function resetMissionForm(){
   document.getElementById('edit-id').value='';
   ['m-name','m-pts','m-cat','m-desc'].forEach(i=>document.getElementById(i).value='');
 }
-
 function renderAdmMissions(){
   document.getElementById('adm-m-list').innerHTML=DB.missions.length?DB.missions.map(m=>`
     <div class="m-row">
@@ -629,15 +615,14 @@ function renderAdmMissions(){
     </div>`).join(''):'<p style="color:var(--muted);font-size:13px">Aucune mission.</p>';
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ADMIN — VALIDATION + EMAIL
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderAdmValidation(){
   const el=document.getElementById('adm-val-list');
   if(!DB.pending.length){el.innerHTML='<p style="color:var(--muted);font-size:13px">Aucune mission en attente.</p>';return;}
   el.innerHTML=DB.pending.map(p=>{
-    const u=DB.users.find(x=>x.id===p.uid);
-    const m=DB.missions.find(x=>x.id===p.mid);
+    const u=DB.users.find(x=>x.id===p.uid),m=DB.missions.find(x=>x.id===p.mid);
     if(!u||!m)return'';
     return `<div class="m-row">
       <div style="font-size:22px">${getLvAv(u.pts)}</div>
@@ -651,10 +636,8 @@ function renderAdmValidation(){
     </div>`;
   }).join('');
 }
-
 function validate(uid,mid){
-  const u=DB.users.find(x=>x.id===uid);
-  const m=DB.missions.find(x=>x.id===mid);
+  const u=DB.users.find(x=>x.id===uid),m=DB.missions.find(x=>x.id===mid);
   if(!u||!m)return;
   const lvB=getLevel(u.pts);
   DB.pending=DB.pending.filter(p=>!(p.uid===uid&&p.mid===mid));
@@ -662,23 +645,17 @@ function validate(uid,mid){
   if(CU&&CU.id===uid){CU.pts=u.pts;CU.missions=u.missions;}
   persist();
   const lvA=getLevel(u.pts);
-  if(lvA>lvB)toast('✨ '+u.name+' évolue vers '+LEVELS[lvA].name+' '+LEVELS[lvA].av);
+  if(lvA>lvB)toast('✨ '+u.name+' évolue vers '+DB.levels[lvA].name+' '+DB.levels[lvA].av);
   else toast('✓ Validé ! '+u.name+' — +'+m.pts+' pts');
-  generateEmail(u,m);
-  renderAdmValidation();renderAdmBenevoles();
+  generateEmail(u,m);renderAdmValidation();renderAdmBenevoles();
 }
-
 function reject(uid,mid){
   DB.pending=DB.pending.filter(p=>!(p.uid===uid&&p.mid===mid));
   persist();renderAdmValidation();toast('Mission refusée.');
 }
-
-// ═══════════════════════════════════════════════
-//  EMAIL TEMPLATE
-// ═══════════════════════════════════════════════
 function generateEmail(u,m){
   const now=new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
-  const lv=getLevel(u.pts),lvN=LEVELS[lv];
+  const lv=getLevel(u.pts),lvN=DB.levels[lv];
   const body=`À: ${DB.cfg.email}
 Objet: ✅ BénévoGame FENIX — Mission validée : ${u.name}
 
@@ -691,43 +668,35 @@ Bonjour,
 
 Une mission vient d'être complétée et validée le ${now}.
 
-👤 Bénévole     : ${u.name}
-📧 Email        : ${u.email||'Non renseigné'}
-🏷 Rôle         : ${u.role}
+👤 Bénévole      : ${u.name}
+📧 Email         : ${u.email||'Non renseigné'}
+🏷 Rôle          : ${u.role}
 
-✅ Mission       : ${m.name}
-🏷 Catégorie    : ${m.cat}
-⭐ Points gagnés : +${m.pts} pts
+✅ Mission        : ${m.name}
+🏷 Catégorie     : ${m.cat}
+⭐ Points gagnés  : +${m.pts} pts
 
-📊 Total cumulé  : ${u.pts} pts
-🦅 Niveau actuel : Niveau ${lv+1} — ${lvN.name} ${lvN.av}
-🎁 Récompense    : ${lvN.reward}
+📊 Total cumulé   : ${u.pts} pts
+🦅 Niveau actuel  : Niveau ${lv+1} — ${lvN.name} ${lvN.av}
+🎁 Récompense     : ${lvN.reward}
 
 ────────────────────────────────────
 Ce message est généré automatiquement par BénévoGame.
 FENIX Toulouse Handball — Fondé en 1964
 ────────────────────────────────────`;
-
   lastEmailBody=body;
   document.getElementById('email-preview').textContent=body;
 }
-
 function copyEmail(){
   if(!lastEmailBody){toast('Validez d\'abord une mission.');return;}
   navigator.clipboard.writeText(lastEmailBody)
-    .then(()=>toast('📋 Email copié dans le presse-papier !'))
-    .catch(()=>{
-      // fallback
-      const ta=document.createElement('textarea');
-      ta.value=lastEmailBody;document.body.appendChild(ta);ta.select();
-      document.execCommand('copy');document.body.removeChild(ta);
-      toast('📋 Email copié !');
-    });
+    .then(()=>toast('📋 Email copié !'))
+    .catch(()=>{const ta=document.createElement('textarea');ta.value=lastEmailBody;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Email copié !');});
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  ADMIN — BÉNÉVOLES
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function renderAdmBenevoles(){
   document.getElementById('adm-ben-list').innerHTML=DB.users.length?
     [...DB.users].sort((a,b)=>b.pts-a.pts).map(u=>{
@@ -736,30 +705,26 @@ function renderAdmBenevoles(){
         <div style="font-size:22px">${getLvAv(u.pts)}</div>
         <div style="flex:1">
           <div style="font-size:13px;font-weight:600">${u.name}</div>
-          <div style="font-size:11px;color:var(--muted)">${u.role} · ${LEVELS[lv].name} · ${u.missions.length} mission(s)</div>
+          <div style="font-size:11px;color:var(--muted)">${u.role} · ${DB.levels[lv].name} · ${u.missions.length} mission(s)</div>
           ${u.email?`<div style="font-size:11px;color:var(--muted)">${u.email}</div>`:''}
         </div>
         <div style="font-weight:600;color:var(--sky)">${u.pts} pts</div>
-        <button class="btn-sm" onclick="addPts(${u.id})" title="Ajouter des points manuellement">+pts</button>
-        <button class="btn-sm btn-danger" onclick="deleteUser(${u.id})" title="Supprimer ce bénévole">🗑</button>
+        <button class="btn-sm" onclick="addPts(${u.id})" title="Ajuster les points">+pts</button>
+        <button class="btn-sm btn-danger" onclick="deleteUser(${u.id})">🗑</button>
       </div>`;
     }).join(''):'<p style="color:var(--muted);font-size:13px">Aucun bénévole inscrit.</p>';
 }
-
 function addPts(uid){
-  const n=parseInt(prompt('Points à ajouter (peut être négatif pour corriger) :'));
+  const n=parseInt(prompt('Points à ajouter (négatif pour corriger) :'));
   if(isNaN(n))return;
   const u=DB.users.find(x=>x.id===uid);if(!u)return;
   const lvB=getLevel(u.pts);
   u.pts=Math.max(0,u.pts+n);
   if(CU&&CU.id===uid)CU.pts=u.pts;
-  persist();
-  const lvA=getLevel(u.pts);
-  renderAdmBenevoles();
-  if(lvA!==lvB)toast('✨ '+u.name+' → '+LEVELS[lvA].name+' '+LEVELS[lvA].av);
+  persist();const lvA=getLevel(u.pts);renderAdmBenevoles();
+  if(lvA!==lvB)toast('✨ '+u.name+' → '+DB.levels[lvA].name+' '+DB.levels[lvA].av);
   else toast((n>=0?'+':'')+n+' pts à '+u.name);
 }
-
 function deleteUser(uid){
   if(!confirm('Supprimer définitivement ce bénévole ?'))return;
   DB.users=DB.users.filter(u=>u.id!==uid);
@@ -768,9 +733,78 @@ function deleteUser(uid){
   persist();renderAdmBenevoles();toast('Bénévole supprimé.');
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
+//  ADMIN — ÉDITEUR DE NIVEAUX
+// ══════════════════════════════════════
+function renderLevelsEditor(){
+  const el=document.getElementById('levels-editor');
+  el.innerHTML=DB.levels.map((l,i)=>`
+    <div class="lv-row" id="lv-row-${i}">
+      <input class="lv-av" type="text" id="lv-av-${i}" value="${l.av}" maxlength="4" title="Emoji avatar" style="width:36px;padding:5px;text-align:center;font-size:18px;margin-bottom:0"/>
+      <input type="text" id="lv-name-${i}" value="${l.name}" placeholder="Nom du niveau" style="margin-bottom:0"/>
+      ${i===0
+        ? `<span class="lv-lock">0 pt</span>`
+        : `<input type="number" id="lv-pts-${i}" value="${l.pts}" min="1" style="margin-bottom:0"/>`
+      }
+      <span></span>
+      <input type="text" id="lv-rew-${i}" value="${l.reward}" placeholder="Récompense" style="margin-bottom:0"/>
+      ${i===0
+        ? `<span style="width:28px"></span>`
+        : `<button class="btn-sm btn-danger" onclick="removeLevel(${i})" title="Supprimer ce niveau" style="padding:4px 8px">🗑</button>`
+      }
+    </div>`).join('');
+  document.getElementById('levels-msg').textContent='';
+}
+
+function addLevel(){
+  const last=DB.levels[DB.levels.length-1];
+  DB.levels.push({name:'Nouveau niveau',pts:last.pts+200,av:'🏅',reward:'Récompense à définir'});
+  renderLevelsEditor();
+  toast('Niveau ajouté — remplis les champs puis enregistre.');
+}
+
+function removeLevel(i){
+  if(DB.levels.length<=2){toast('Il faut au moins 2 niveaux.');return;}
+  if(!confirm('Supprimer ce niveau ?'))return;
+  DB.levels.splice(i,1);
+  persist();renderLevelsEditor();
+  toast('Niveau supprimé.');
+}
+
+function saveLevels(){
+  const msg=document.getElementById('levels-msg');
+  const newLevels=[];
+  for(let i=0;i<DB.levels.length;i++){
+    const av=(document.getElementById('lv-av-'+i).value.trim()||'⭐');
+    const name=(document.getElementById('lv-name-'+i).value.trim()||'Niveau '+(i+1));
+    const pts=i===0?0:parseInt(document.getElementById('lv-pts-'+i).value)||0;
+    const reward=(document.getElementById('lv-rew-'+i).value.trim()||'À définir');
+    if(i>0&&pts<=0){msg.style.color='var(--danger)';msg.textContent='Les seuils de points doivent être supérieurs à 0.';return;}
+    if(i>0&&newLevels.length&&pts<=newLevels[i-1].pts){
+      msg.style.color='var(--danger)';
+      msg.textContent=`Le seuil du niveau ${i+1} (${pts} pts) doit être supérieur au niveau ${i} (${newLevels[i-1].pts} pts).`;
+      return;
+    }
+    newLevels.push({av,name,pts,reward});
+  }
+  DB.levels=newLevels;
+  persist();
+  msg.style.color='var(--success)';
+  msg.textContent='✓ Niveaux enregistrés ! Les bénévoles voient les changements immédiatement.';
+  setTimeout(()=>msg.textContent='',4000);
+  toast('✅ Niveaux & récompenses mis à jour.');
+}
+
+function resetLevels(){
+  if(!confirm('Remettre les niveaux par défaut ?'))return;
+  DB.levels=JSON.parse(JSON.stringify(DEFAULT_LEVELS));
+  persist();renderLevelsEditor();
+  toast('Niveaux remis par défaut.');
+}
+
+// ══════════════════════════════════════
 //  ADMIN — PARAMÈTRES
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 function saveParams(){
   const email=document.getElementById('cfg-email').value.trim();
   const p1=document.getElementById('cfg-pwd1').value;
@@ -779,7 +813,7 @@ function saveParams(){
   if(email)DB.cfg.email=email;
   if(p1||p2){
     if(p1!==p2){msg.style.color='var(--danger)';msg.textContent='Les mots de passe ne correspondent pas.';return;}
-    if(p1.length<4){msg.style.color='var(--danger)';msg.textContent='Mot de passe trop court (4 caractères min).';return;}
+    if(p1.length<4){msg.style.color='var(--danger)';msg.textContent='Mot de passe trop court (4 car. min).';return;}
     DB.cfg.pwd=p1;
     document.getElementById('cfg-pwd1').value='';
     document.getElementById('cfg-pwd2').value='';
@@ -789,18 +823,17 @@ function saveParams(){
   setTimeout(()=>msg.textContent='',3000);
   toast('Paramètres sauvegardés.');
 }
-
 function resetAll(){
-  if(!confirm('⚠️ Effacer TOUTES les données (bénévoles, missions, points) ? Cette action est irréversible.'))return;
+  if(!confirm('⚠️ Effacer TOUTES les données ? Action irréversible.'))return;
   if(!confirm('Dernière confirmation : effacer toutes les données ?'))return;
-  ['fg_users','fg_missions','fg_pending','fg_cfg','fg_nextId'].forEach(k=>localStorage.removeItem(k));
+  ['fg_users','fg_missions','fg_pending','fg_cfg','fg_levels','fg_nextId'].forEach(k=>localStorage.removeItem(k));
   location.reload();
 }
 
-// ═══════════════════════════════════════════════
+// ══════════════════════════════════════
 //  INIT
-// ═══════════════════════════════════════════════
-window._selAv='🥚';
+// ══════════════════════════════════════
+window._selAv=DB.levels[0].av;
 go('dashboard');
 </script>
 </body>
